@@ -1,8 +1,9 @@
 // combatant.js
-class Combatant {
+const Entity = require("./entity");
+
+class Combatant extends Entity{
     constructor(name, hp, str, dex, con, int, wis, cha, speed) {
-        this.name = name;       // Name of the combatant
-        this.hp = hp;           // Hit points
+        super(name, hp, speed);
         this.strMod  = Math.floor(str/2) - 5;
         this.dexMod  = Math.floor(dex/2) - 5;
         this.conMod  = Math.floor(con/2) - 5;
@@ -11,7 +12,6 @@ class Combatant {
         this.chaMod  = Math.floor(cha/2) - 5;
         this.attack = 2 + this.strMod;
         this.defense = 10 + this.dexMod;
-        this.speed = speed;     // Speed for turn order
     }
 
     // Method to determine damage dealt
