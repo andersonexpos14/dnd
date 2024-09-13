@@ -15,12 +15,17 @@ export default class Ship extends Entity {
         this.bonusActions = 0;
         this.repairCharges = 0;
         this.cannonCharges = 0;
+        this.crew = [];
 
         return this;
     }
+
+    loadCrew(crew) {
+        this.crew = crew;
+    }
 }
 
-class Sailboat extends Ship {
+export class Sailboat extends Ship {
     constructor(name) {
         super(name, 20, 5, 8, 10, 0, 20, 0, 10, 0);
         return this;
@@ -39,7 +44,7 @@ class Sailboat extends Ship {
     }
 }
 
-class Rowboat extends Ship {
+export class Rowboat extends Ship {
     constructor(name) {
         super(name, 15, 6, 10, 10, -1, 10, 0, 10, 0);
         return this;
@@ -52,9 +57,14 @@ class Rowboat extends Ship {
     repair(hp) {
         this.hp += hp;
     }
+
+    pushTheCrew() {
+        this.bonusActions --;
+        this.actions ++;
+    }
 }
 
-class Sloop extends Ship {
+export class Sloop extends Ship {
     constructor(name) {
         super(name, 30, 5, 10, 10, 0, 5, 0, 10, 0);
         this.repairCharges = 5;
@@ -81,14 +91,20 @@ class Sloop extends Ship {
     fullSail() {
         this.speed += 2;
     }
+
+    pushTheCrew() {
+        this.bonusActions --;
+        this.actions ++;
+    }
 }
 
-class Tartane extends Ship {
+export class Tartane extends Ship {
     constructor(name) {
         super(name, 45, 4, 12, 13, 0, 10, 0, 10, 0);
         this.repairCharges = 10;
         this.cannonCharges = 6;
-        this.rowboat = new Rowboat(name+"'s Rowboat")
+        this.availableRowboats = 1;
+        return this;
     }
 
     cannon(target) {
@@ -117,15 +133,20 @@ class Tartane extends Ship {
     fullSail() {
         this.speed += 2;
     }
+
+    pushTheCrew() {
+        this.bonusActions --;
+        this.actions ++;
+    }
 }
 
 export class Brigantine extends Ship {
-    constructor() {
-        super(name, 75, 3, 15, 15, 2, 10, -1, 10, 1);
+    constructor(name) {
+        super(name, 60, 3, 13, 15, 2, 10, -1, 10, 1);
         this.repairCharges = 30;
         this.cannonCharges = 10;
-        this.rowboats = [new Rowboat(name+"'s Rowboat #1"), new Rowboat(name+"'s Rowboat #2"), new Rowboat(name+"'s Rowboat #3")];
-
+        this.availableRowboats = 2;
+        return this;
     }
 
     cannon(target) {
@@ -152,6 +173,126 @@ export class Brigantine extends Ship {
     }
 
     fullSail() {
-        this.speed += 2;
+        this.speed += 1;
+    }
+
+    pushTheCrew() {
+        this.bonusActions --;
+        this.actions ++;
+    }
+}
+
+export class Galleon extends Ship {
+    constructor(name) {
+        super(name, 75, 3, 15, 15, 2, 10, -1, 10, 1);
+        this.cannonCharges = 10;
+        this.repairCharges = 30;
+        this.availableRowboats = 3;
+        return this;
+    }
+
+    cannon(target) {
+        target.hp -= Math.floor(Math.random()*10) + 4;
+    }
+
+    smallArms(target) {
+        target.hp -= Math.floor(Math.random()*8) + 4;
+    }
+
+    repairAuto() {
+        this.hp += Math.floor(Math.random()*10) +1;
+    }
+
+    repair(hp) {
+        this.hp += hp;
+    }
+
+    fullSail() {
+        this.speed += 1;
+    }
+
+    pushTheCrew() {
+        this.bonusActions --;
+        this.actions ++;
+    }
+}
+
+export class ShipOfTheLine extends Ship {
+    constructor(name) {
+        super(name, 100, 3, 16, 18, 3, 10, -2, 10, 2)
+        this.cannonCharges = 20;
+        this.repairCharges = 50;
+        this.availableRowboats = 4;
+        return this;
+    }
+
+    cannon(target) {
+        target.hp -= Math.floor(Math.random()*10) + 6;
+    }
+
+    smallArms(target) {
+        target.hp -= Math.floor(Math.random()*8) + 6;
+    }
+
+    repairAuto() {
+        this.hp += Math.floor(Math.random()*10) + 1;
+    }
+
+    repair(hp) {
+        this.hp += hp;
+    }
+
+    fullSail() {
+        this.speed += 1;
+    }
+
+    pushTheCrew() {
+        this.bonusActions --;
+        this.actions ++;
+    }
+}
+
+export class BombardCannonShip extends Ship {
+    constructor(name) {
+        super(name, 75, 4, 15, 15, 0, 10, 2, 15, 1);
+        this.cannonCharges = 16;
+        this.repairCharges = 10;
+        this.availableRowboats = 1;
+        this.isLoaded = true;
+        return this;
+    }
+
+    reload() {
+        this.isLoaded = true;
+        this.actions --;
+    }
+
+    giantCannon(target) {
+        target.hp -= Math.floor(Math.random()*20) + 21;
+    }
+
+    cannon(target) {
+        target.hp -= Math.floor(Math.random()*10) + 4;
+    }
+
+    smallArms(target) {
+        target.hp -= Math.floor(Math.random()*8) + 4;
+    }
+
+    repairAuto() {
+        this.hp += Math.floor(Math.random()*10) + 1;
+    }
+
+    repair(hp) {
+        this.hp += hp;
+    }
+
+    fullSail() {
+        this.speed += 1;
+    }
+
+    pushTheCrew() {
+        this.bonusActions --;
+        this.actions ++;
     }
 }
