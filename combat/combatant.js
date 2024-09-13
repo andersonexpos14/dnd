@@ -1,7 +1,7 @@
 // combatant.js
-const Entity = require("./entity");
+import Entity from './entity.js'
 
-class Combatant extends Entity{
+export default class Combatant extends Entity{
     constructor(name, hp, str, dex, con, int, wis, cha, speed) {
         super(name, hp, speed);
         this.strMod  = Math.floor(str/2) - 5;
@@ -30,5 +30,3 @@ class Combatant extends Entity{
         return this.hp > 0;
     }
 }
-
-module.exports = Combatant;
