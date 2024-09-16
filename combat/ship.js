@@ -407,3 +407,32 @@ export class GhostShip extends Ship {
         this.actions ++;
     }
 }
+
+export class DragonTurtleShell extends Ship {
+    constructor(name) {
+        super(name, 150, 7, 15, 20, 0, 10, 0, 15, 0);
+    }
+
+    bite(target) {
+        target.hp -= 2*(Math.floor(Math.random()*20) + 1);
+    }
+
+    claws(target) {
+        target.hp -= Math.floor(Math.random()*20) + 6;
+    }
+}
+
+export class MegalodonSahuaginWarship extends Ship {
+    constructor(name) {
+        super(name, 125, 8,  13, 15, 0, 15, 0, 13, 0);
+        this.cannonCharges = 6;
+    }
+
+    bite(target) {
+        target.hp -= 2*(Math.floor(Math.random()*20) + 1);
+    }
+
+    ballista(target) {
+        target.hp -= Math.floor(Math.random()*8) + 1;
+    }
+}

@@ -1,6 +1,6 @@
 // index.js
 import Combatant from './combatant.js';
-import Ship, {Sailboat, Rowboat, Sloop, Tartane, Brigantine, Galleon, ShipOfTheLine, BombardCannonShip} from './ship.js';
+import Ship, {Raft, Sailboat, Rowboat, Sloop, Tartane, Brigantine, Galleon, ShipOfTheLine, BombardCannonShip, GoblinWarBarge, GhostShip, DragonTurtleShell, MegalodonSahuaginWarship} from './ship.js';
 
 // Example characters
 const hero1 = new Combatant('Cran Wintergrip', 100, 17, 14, 14, 8, 12, 10, 15);
