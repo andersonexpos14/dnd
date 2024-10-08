@@ -27,7 +27,7 @@ export default class Ship extends Entity {
 
 export class Raft extends Ship {
     constructor(name) {
-        super(name, 10, 2, 7, 8, 0, 10, 0, 5, 0);
+        super(name, 20, 2, 12, 8, 0, 10, 0, 5, 0);
         return this;
     }
 
@@ -46,7 +46,7 @@ export class Raft extends Ship {
 
 export class Sailboat extends Ship {
     constructor(name) {
-        super(name, 20, 5, 8, 10, 0, 20, 0, 10, 0);
+        super(name, 25, 5, 12, 10, 0, 20, 0, 10, 0);
         return this;
     }
 
@@ -65,7 +65,7 @@ export class Sailboat extends Ship {
 
 export class Rowboat extends Ship {
     constructor(name) {
-        super(name, 15, 6, 10, 10, -1, 10, 0, 10, 0);
+        super(name, 20, 6, 12, 10, -1, 10, 0, 10, 0);
         return this;
     }
 
@@ -85,7 +85,7 @@ export class Rowboat extends Ship {
 
 export class Sloop extends Ship {
     constructor(name) {
-        super(name, 30, 5, 10, 10, 0, 5, 0, 10, 0);
+        super(name, 45, 5, 12, 10, 0, 5, 0, 10, 0);
         this.repairCharges = 5;
         this.cannonCharges = 6;
         return this;
@@ -122,7 +122,7 @@ export class Sloop extends Ship {
 
 export class Tartane extends Ship {
     constructor(name) {
-        super(name, 45, 4, 12, 13, 0, 10, 0, 10, 0);
+        super(name, 65, 4, 12, 13, 0, 10, 0, 10, 0);
         this.repairCharges = 10;
         this.cannonCharges = 6;
         this.availableRowboats = 1;
@@ -167,7 +167,7 @@ export class Tartane extends Ship {
 
 export class Brigantine extends Ship {
     constructor(name) {
-        super(name, 60, 3, 13, 15, 2, 10, -1, 10, 1);
+        super(name, 100, 3, 15, 15, 2, 10, -1, 10, 1);
         this.repairCharges = 30;
         this.cannonCharges = 10;
         this.availableRowboats = 2;
@@ -209,7 +209,7 @@ export class Brigantine extends Ship {
 
 export class Galleon extends Ship {
     constructor(name) {
-        super(name, 75, 3, 15, 15, 2, 10, -1, 10, 1);
+        super(name, 200, 3, 16, 15, 2, 10, -1, 10, 1);
         this.cannonCharges = 10;
         this.repairCharges = 30;
         this.availableRowboats = 3;
@@ -247,7 +247,7 @@ export class Galleon extends Ship {
 
 export class ShipOfTheLine extends Ship {
     constructor(name) {
-        super(name, 100, 3, 16, 18, 3, 10, -2, 10, 2)
+        super(name, 300, 3, 17, 18, 3, 10, -2, 10, 2)
         this.cannonCharges = 20;
         this.repairCharges = 50;
         this.availableRowboats = 4;
@@ -285,7 +285,7 @@ export class ShipOfTheLine extends Ship {
 
 export class BombardCannonShip extends Ship {
     constructor(name) {
-        super(name, 75, 4, 15, 15, 0, 10, 2, 15, 1);
+        super(name, 100, 4, 15, 15, 0, 10, 2, 15, 1);
         this.cannonCharges = 16;
         this.repairCharges = 10;
         this.availableRowboats = 1;
@@ -334,7 +334,7 @@ export class BombardCannonShip extends Ship {
 
 export class GoblinWarBarge extends Ship {
     constructor(name) {
-        super(name, 50, 3, 10, 13, 0, 10, 0, 10, -1);
+        super(name, 50, 3, 12, 13, 0, 10, 0, 10, -1);
         this.cannonCharges = 4;
         this.repairCharges = 5;
     }
@@ -377,7 +377,7 @@ export class GoblinWarBarge extends Ship {
 
 export class GhostShip extends Ship {
     constructor(name) {
-        super(name, 100, 10, 17, 15, 0, 15, 0, 15, 0);
+        super(name, 250, 10, 19, 15, 0, 15, 0, 15, 0);
         this.cannonCharges = 4;
         this.repairCharges = 5;
     }
@@ -410,7 +410,7 @@ export class GhostShip extends Ship {
 
 export class DragonTurtleShell extends Ship {
     constructor(name) {
-        super(name, 150, 7, 15, 20, 0, 10, 0, 15, 0);
+        super(name, 341, 7, 15, 20, 0, 10, 0, 15, 0);
     }
 
     bite(target) {
@@ -424,7 +424,7 @@ export class DragonTurtleShell extends Ship {
 
 export class MegalodonSahuaginWarship extends Ship {
     constructor(name) {
-        super(name, 125, 8,  13, 15, 0, 15, 0, 13, 0);
+        super(name, 250, 8, 14, 15, 0, 15, 0, 13, 0);
         this.cannonCharges = 6;
     }
 
